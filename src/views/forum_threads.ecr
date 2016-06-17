@@ -1,0 +1,26 @@
+
+
+<br/>
+
+
+<b><%= fname %></b>
+<table style="width:100%;">
+  <tr>
+    <th style="width:10%">Ответов</th>
+    <th style="width:15%">Дата</th>
+    <th>Тема</th>
+  <tr>
+     <% threads.each do |thr| %>
+      <%
+         time= thr[4].to_s("%Y-%m-%d %H:%M") rescue ""
+      %>
+    <tr>
+      <td style="text-align:center"><%= thr[5] %></td>
+      <td style="text-align:center" class="altCol"><%=  time %></td>
+      <td>
+      <% link = ForumHelper.get_thread_link(sid,fname,thr[2])%>
+        <a href='<%= link %>'><%= thr[3] %></a>
+      </td>
+    </tr>
+    <% end %>
+</table>

@@ -1,0 +1,14 @@
+<% sites = ["","","rsn","lor","","","sqlr"] %>
+
+
+<table style="width:90%;">
+  <tr>
+  <td valign="top">
+    <% forums.select{|f| f[3]==1}.each do |f| %>
+      <a href="/site/<%= sid %>/forum/<%= f[1] %>"><%= f[2] %></a>
+    <% end %>
+    </li>
+  </ul>
+  </td>
+  </tr>
+</table>

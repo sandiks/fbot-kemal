@@ -1,0 +1,38 @@
+<div style="color:red;">
+    <% mforums.each do |group|%>
+      <a href='/group/<%= group[0] %>'><%= group[1] %></a> |
+    <% end%>
+</div>
+
+
+<% mforums.each do |forum| %>
+<div style="margin-top:20px;">
+  <div style="color:red;">
+    <%= forum[1] %>
+  </div>
+  <table class="forumTable" style="width:100%;">
+    <tbody>
+      <tr>
+        
+        <th>Тема</th>
+        <th style="width:5%">Ответов</th>
+        <th style="width:25%;text-align:center">Дата</th>
+        <th style="width:10%">Сайт</th>
+        <th style="width:10%">Форум</th>
+      </tr>
+      
+      <% mforums_threads[forum[0]].each do |thread| %>
+      <tr>
+        <td class="postslisttopic">
+          <a href='<%= ForumHelper.get_thread_link(thread[0], "", thread[2]) %>'><%= thread[3] %></a>
+        </td>
+        <td style="text-align:center"><%= thread[5] %></td>
+        <td style="text-align:center"><%= thread[4].to_s("%Y-%m-%d %H:%M") %></td>
+        <td><%= ForumHelper.get_site_name(thread[0]) %></td>
+        <td><%= thread[1] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>

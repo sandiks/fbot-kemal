@@ -1,0 +1,24 @@
+<table style="width:90%;">
+  <tr>
+  <td valign="top">
+    <% forums.select{|f| f[6]==1}.group_by{|f| f[4]}.each do |k,subforums| %>
+      <%parent_forum = forums.find{|f| f[1]==k} %>
+      <%=  if parent_forum 
+        "#{parent_forum[5]} (#{parent_forum[8]})" 
+      else
+        k
+      end
+        %>
+      <br />
+  <ul>
+    <li>
+        <% subforums.each do |subf| %>
+          **<a href="/site/<%= sid %>/forum/<%= subf[1] %>"><%= subf[5] %></a>
+        <% end %>
+      
+    </li>
+  </ul>
+    <% end %>
+  </td>
+  </tr>
+</table>
