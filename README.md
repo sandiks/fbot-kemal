@@ -1,18 +1,19 @@
 # my_kemal_fbot
-
-TODO: Write a description here
+ 
+ This is a web app that consist several forums parsed by crawler
 
 ## Installation
 
-
-TODO: Write installation instructions here
+1. cd fbot-kemal && shards install
+2. [dev] crystal build src/main.cr
+	 [release] crystal build src/main.cr --release
 
 
 ## Usage
-
-
-
-TODO: Write usage instructions here
+to run web site
+./main
+and open web browser 
+http://localhost:3000/
 
 ## Development
 
